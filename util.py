@@ -14,15 +14,19 @@ puzinpfn=fnname+".input"
 def strip_lines(lines):
     return [x.strip() for x in lines]
 
-def sample(puzzle_func):
+def sample(puzzle_func, strip=True):
     with open(samplefn) as f:
         lines = f.readlines()
+    if strip:
+        lines = strip_lines(lines)
     return puzzle_func(lines)
 
-def mainpuzzle(puzzle_func):
+def mainpuzzle(puzzle_func, strip=True):
     global puzzle, puzzleb
     with open(puzinpfn) as f:
         lines = f.readlines()
+    if strip:
+        lines = strip_lines(lines)
     return puzzle_func(lines)
 
 
