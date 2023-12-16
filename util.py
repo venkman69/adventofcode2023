@@ -14,7 +14,9 @@ puzinpfn=fnname+".input"
 def strip_lines(lines):
     return [x.strip() for x in lines]
 
-def sample(puzzle_func, strip=True):
+def sample(puzzle_func, fnextn=None, strip=True):
+    if fnextn:
+        samplefn = f"{fnname}.{fnextn}"
     with open(samplefn) as f:
         lines = f.readlines()
     if strip:
